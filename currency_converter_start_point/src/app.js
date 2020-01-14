@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       currencies: null,
       selectedCurrency: null,
-      amountToConvert: null
+      amountToConvert: null,
+      direction: null
     },
     mounted() {
       this.populateCurrencies()
@@ -14,13 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
     methods: {
       populateCurrencies: function () {
         fetch('https://api.exchangeratesapi.io/latest')
-          .then(receivedCurrencies => receivedCurrencies.json())
-          .then(data => this.currencies = data.rates)
-          this.currencies = null
+        .then(receivedCurrencies => receivedCurrencies.json())
+        .then(data => this.currencies = data.rates)
+        this.currencies = null
       },
       calculateConversion: function (amountToConvert, rate) {
-        const result = amountToConvert * rate
-        return result.toFixed(2)
+        if (this.direction === "fromEuros"){
+          const result = amountToConvert * rate
+          return result.toFixed(2)
+        }
+        else {
+          const result = amountToConvert / rate
+          return result.toFixed(2)
+        }
       }
     }
   });
