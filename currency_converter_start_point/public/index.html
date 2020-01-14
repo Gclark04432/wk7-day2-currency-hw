@@ -16,7 +16,7 @@
     <form>
       <label for="currencies"></label>
       <select id="currencies" v-model="selectedCurrency">
-        <option v-for="currency in currencies">{{currency}}</option>
+        <option v-for="(currency, key) in currencies">{{key}}</option>
       </select>
     </form>
 
