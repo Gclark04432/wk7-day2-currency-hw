@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
           this.currencies = null
       },
       calculateConversion: function (amountToConvert, rate) {
-        return amountToConvert * rate
+        const result = amountToConvert * rate
+        return result.toFixed(2)
       }
     }
   });
