@@ -14,11 +14,22 @@
     <h1>Currency Conversion App</h1>
 
     <form>
-      <label for="currencies"></label>
+      <label for="amountToConvert">Enter amount to convert (in Euros): </label>
+      <input type="number" name="amountToConvert" :value="amountToConvert">
+
+      <br>
+      <label for="currencies">Please select a currency to convert with: </label>
       <select id="currencies" v-model="selectedCurrency">
-        <option v-for="(currency, key) in currencies">{{key}}</option>
+        <option v-for="(currency, key) in currencies" :value="currency">{{key}}</option>
       </select>
+
+      <input type="submit" value="Calculate!">
     </form>
+
+    <nav v-if="selectedCurrency">
+      <h1>The current conversion rate is: {{selectedCurrency}}</h1>
+      <h2>Your converted rate is: {{calculateConversion(amountToConvert, selectedCurrency)}}
+    </nav>
 
   </div>
 </body>
