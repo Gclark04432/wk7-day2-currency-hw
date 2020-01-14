@@ -50,3 +50,27 @@ button{
   cursor: pointer;
   border: 1px solid #000;
 }
+
+form input, select{
+  background-color: lightyellow;
+  max-width: 100px;
+}
+
+label {
+  margin: 15px;
+}
+
+div.results {
+  display: grid;
+  background-color: lightblue;
+  border: 3px lightgreen solid;
+}
+
+div.results h1{
+  text-decoration: underline red;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+}

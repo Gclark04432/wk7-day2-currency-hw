@@ -29,11 +29,12 @@
       </select>
     </form>
 
-    <nav v-if="selectedCurrency && direction">
-      <h1>The current conversion rate is: {{selectedCurrency}}</h1>
-      <h2>Your converted rate is:
+    <br><br>
+    <div class="results" v-if="selectedCurrency && direction">
+      <h2>The current conversion rate is: {{selectedCurrency}}</h1>
+      <h1>Your converted rate is:
         {{calculateConversion(amountToConvert, selectedCurrency)}}</h2>
-    </nav>
+    </div>
 
   </div>
 </body>
