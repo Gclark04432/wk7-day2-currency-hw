@@ -15,15 +15,14 @@
 
     <form>
       <label for="amountToConvert">Enter amount to convert (in Euros): </label>
-      <input type="number" name="amountToConvert" :value="amountToConvert">
+      <input type="number" name="amountToConvert" v-model="amountToConvert">
 
       <br>
       <label for="currencies">Please select a currency to convert with: </label>
-      <select id="currencies" v-model="selectedCurrency">
+      <select id="currencies" v-model="selectedCurrency" v-on:change.prevent>
         <option v-for="(currency, key) in currencies" :value="currency">{{key}}</option>
       </select>
 
-      <input type="submit" value="Calculate!">
     </form>
 
     <nav v-if="selectedCurrency">
