@@ -13,29 +13,34 @@
   <div id="app">
     <h1>Currency Conversion App</h1>
 
-    <form>
+    <form class="wrapper">
 
-      <input type="radio" v-model="direction" value="fromEuros">From Euros
-      <input type="radio" v-model="direction" value="toEuros">To Euros
-      <br>
+      <div class="top">
+        <input type="radio" v-model="direction" value="fromEuros">From Euros
+        <input type="radio" v-model="direction" value="toEuros">To Euros
+      </div>
 
-      <label for="amountToConvert">Enter amount of currency to convert: </label>
-      <input type="number" name="amountToConvert" v-model="amountToConvert">
+      <div class="form-left">
+        <label for="amountToConvert">Enter amount of currency to convert: </label>
+        <input type="number" name="amountToConvert" v-model="amountToConvert">
+      </div>
 
-      <br>
-      <label for="currencies">Please select a currency to convert to/from: </label>
-      <select id="currencies" v-model="selectedCurrency">
-        <option v-for="(currency, key) in currencies" :value="currency">{{key}}</option>
-      </select>
+      <div class="form-right">
+        <label for="currencies">Please select a currency to convert to/from: </label>
+        <select id="currencies" v-model="selectedCurrency">
+          <option v-for="(currency, key) in currencies" :value="currency">{{key}}</option>
+        </select>
+      </div>
+
     </form>
 
     <br><br>
     <div class="results" v-if="selectedCurrency && direction">
       <h2>The current conversion rate is: {{selectedCurrency}}</h1>
-      <h1>Your converted rate is:
-        {{calculateConversion(amountToConvert, selectedCurrency)}}</h2>
-    </div>
+        <h1>Your converted rate is:
+          {{calculateConversion(amountToConvert, selectedCurrency)}}</h2>
+        </div>
 
-  </div>
-</body>
-</html>
+      </div>
+    </body>
+    </html>
